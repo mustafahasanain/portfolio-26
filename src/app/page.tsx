@@ -1,9 +1,9 @@
-import Image from "next/image";
+import { Hero } from "@/sections";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Welcome to my 3D Portfolio!</h1>
-    </div>
+    <main className="flex-1">
+      <Hero />
+    </main>
   );
 }
