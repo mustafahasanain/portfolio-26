@@ -229,6 +229,12 @@ section {
     }
   }
 
+  .cta-button.arrow-right {
+    .arrow-wrapper img {
+      @apply xl:-translate-x-32 translate-x-0 animate-none group-hover:translate-x-0 group-hover:translate-y-0;
+    }
+  }
+
   .card-border {
     @apply border border-black-50 bg-black-100;
   }
