@@ -83,7 +83,7 @@ const Showcase = () => {
     <div id="work" ref={sectionRef} className="app-showcase">
       <div className="w-full">
         <h2 className="text-white text-3xl md:text-5xl font-semibold mb-10">
-          My Featured Projects
+          Featured Projects
         </h2>
         <div className="showcaselayout">
           <div
