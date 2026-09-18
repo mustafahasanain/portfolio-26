@@ -270,6 +270,41 @@ const socialImgs = [
   },
 ];
 
+const services = [
+  {
+    title: "Product Design",
+    tags: ["Saas Platform", "Web Platform", "Mobile App"],
+    description:
+      "By working hand in hand, we'll turn your ideas into real, market-ready products. With a focus on your unique needs, we'll blend aesthetics and usability. Let's chat about how we can bring your ideas to life.",
+    ctaText: "Discuss Project",
+    ctaLink: "#contact",
+  },
+  {
+    title: "UX Design",
+    tags: ["UX Audit", "Analysis", "Research"],
+    description:
+      "Great products start with understanding people. I audit flows, run analysis, and research real user behavior to design experiences that feel intuitive from the very first click.",
+    ctaText: "Discuss Project",
+    ctaLink: "#contact",
+  },
+  {
+    title: "Development",
+    tags: ["Next.js", "React", "Node.js", "Three.js"],
+    description:
+      "From pixel-perfect interfaces to robust backends, I build fast, scalable, and maintainable applications using modern frameworks and clean, well-tested code.",
+    ctaText: "Discuss Project",
+    ctaLink: "#contact",
+  },
+  {
+    title: "Quality Assurance",
+    tags: ["Testing", "Planning", "Documentation"],
+    description:
+      "Shipping fast shouldn't mean shipping broken. I plan around clear KPIs, test thoroughly, and document everything so your product stays reliable as it grows.",
+    ctaText: "Discuss Project",
+    ctaLink: "#contact",
+  },
+];
+
 export {
   words,
   abilities,
@@ -282,4 +317,5 @@ export {
   techStackIcons,
   techStackImgs,
   navLinks,
+  services,
 };
