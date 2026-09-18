@@ -60,7 +60,7 @@ const AnimatedCounter = () => {
   );
 
   return (
-    <div id="counter" ref={counterRef} className="padding-x-lg xl:mt-0 mt-32">
+    <div ref={counterRef} className="padding-x-lg xl:mt-0 mt-32">
       <ul className="mx-auto grid grid-cols-2 gap-4 xl:grid-cols-4 xl:gap-7">
         {counterItems.map((item, index) => (
           <li
@@ -72,7 +72,7 @@ const AnimatedCounter = () => {
               {item.suffix} {item.label}
             </span>
             <p
-              className="counter-number text-white-50 text-3xl md:text-5xl font-bold mb-2"
+              className="counter-number text-white-50 text-3xl md:text-5xl font-bold mb-2 [contain:layout_paint] [font-variant-numeric:tabular-nums]"
               aria-hidden="true"
             >
               <span
