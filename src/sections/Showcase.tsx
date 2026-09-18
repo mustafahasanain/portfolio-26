@@ -28,6 +28,7 @@ const ArrowRightIcon = () => (
 const Showcase = () => {
   const sectionRef = useRef(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const buttonRef = useRef<HTMLDivElement>(null);
 
   const featuredProjects = projects.filter((project) => project.featured);
   const [mainProject, ...otherProjects] = featuredProjects;
@@ -42,6 +43,10 @@ const Showcase = () => {
 
     // Animations for each app showcase
     const cards = cardRefs.current;
+
+    gsap.set(buttonRef.current, { y: 20, opacity: 0 });
+
+    let cardsRevealed = 0;
 
     cards.forEach((card, index) => {
       gsap.fromTo(
@@ -58,6 +63,16 @@ const Showcase = () => {
           scrollTrigger: {
             trigger: card,
             start: "top bottom-=100",
+          },
+          onComplete: () => {
+            cardsRevealed += 1;
+            if (cardsRevealed === cards.length) {
+              gsap.to(buttonRef.current, {
+                y: 0,
+                opacity: 1,
+                duration: 0.6,
+              });
+            }
           },
         }
       );
@@ -144,7 +159,7 @@ const Showcase = () => {
           </div>
         </div>
 
-        <div className="flex justify-center mt-14">
+        <div ref={buttonRef} className="flex justify-center mt-14">
           <Button
             text="VIEW ALL PROJECTS"
             className="md:w-80 md:h-16 w-60 h-12"
