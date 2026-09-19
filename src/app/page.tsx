@@ -1,5 +1,5 @@
 import { Navbar } from "@/components";
-import { Hero, Services, Showcase, TechStack } from "@/sections";
+import { Commitment, Hero, Services, Showcase, TechStack } from "@/sections";
 
 export default function Home() {
   return (
@@ -9,6 +9,7 @@ export default function Home() {
       <Showcase />
       <Services />
       <TechStack />
+      <Commitment />
     </main>
   );
 }
