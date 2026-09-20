@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import projects from "@/constants/projects";
 import { ProjectCard } from "@/components";
+import ContentExp from "@/components/ContentExp";
 
 export const metadata: Metadata = {
   title: "Projects | Mustafa",
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
 const ProjectsPage = () => {
   return (
     <main className="flex-1 w-full px-5 md:px-20 py-16 md:py-24">
+      <ContentExp />
+
       <h1 className="text-white text-3xl md:text-5xl font-semibold mb-12">
         All Projects
       </h1>
