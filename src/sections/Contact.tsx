@@ -1,39 +1,77 @@
-import { useRef, useState } from "react";
+"use client";
+
+import { useRef, useState, type ChangeEvent, type SubmitEvent } from "react";
 import emailjs from "@emailjs/browser";
 
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/models/contact/ContactExperience";
 
+type ToastStatus = "success" | "error";
+
+type Toast = {
+  status: ToastStatus;
+  message: string;
+};
+
+const TOAST_MESSAGES: Record<ToastStatus, string> = {
+  success: "Your message has been sent successfully. I'll get back to you soon!",
+  error: "Something went wrong while sending your message. Please try again.",
+};
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const Contact = () => {
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
+  const [toast, setToast] = useState<Toast | null>(null);
+  const [emailError, setEmailError] = useState("");
   const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+  const showToast = (status: ToastStatus) => {
+    setToast({ status, message: TOAST_MESSAGES[status] });
+    setTimeout(() => setToast(null), 5000);
   };
 
-  const handleSubmit = async (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+
+    if (name === "email" && emailError) {
+      setEmailError(EMAIL_REGEX.test(value) ? "" : emailError);
+    }
+  };
+
+  const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!EMAIL_REGEX.test(form.email)) {
+      setEmailError("Please enter a valid email address.");
+      return;
+    }
+    setEmailError("");
+
     setLoading(true); // Show loading state
 
     try {
       await emailjs.sendForm(
-        // import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        // import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        // import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current!,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       );
 
       // Reset form and stop loading
       setForm({ name: "", email: "", message: "" });
+      showToast("success");
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error("EmailJS Error:", error);
+      showToast("error");
     } finally {
       setLoading(false); // Always stop loading, even on error
     }
@@ -76,8 +114,12 @@ const Contact = () => {
                     value={form.email}
                     onChange={handleChange}
                     placeholder="What’s your email address?"
+                    aria-invalid={!!emailError}
                     required
                   />
+                  {emailError && (
+                    <p className="text-red-400 text-sm mt-2">{emailError}</p>
+                  )}
                 </div>
 
                 <div>
@@ -88,7 +130,7 @@ const Contact = () => {
                     value={form.message}
                     onChange={handleChange}
                     placeholder="How can I help you?"
-                    rows="5"
+                    rows={5}
                     required
                   />
                 </div>
@@ -114,6 +156,24 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {toast && (
+        <div
+          role="status"
+          className={`fixed bottom-6 right-6 z-[200] flex items-center gap-3 rounded-md border px-5 py-4 shadow-lg max-w-sm ${
+            toast.status === "success"
+              ? "bg-black-100 border-green-500/50"
+              : "bg-black-100 border-red-500/50"
+          }`}
+        >
+          <span
+            className={`size-2.5 rounded-full flex-none ${
+              toast.status === "success" ? "bg-green-500" : "bg-red-500"
+            }`}
+          />
+          <p className="text-white-50 text-sm">{toast.message}</p>
+        </div>
+      )}
     </section>
   );
 };
