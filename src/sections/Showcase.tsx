@@ -80,7 +80,7 @@ const Showcase = () => {
   }, []);
 
   return (
-    <div id="work" ref={sectionRef} className="app-showcase">
+    <div id="projects" ref={sectionRef} className="app-showcase">
       <div className="w-full">
         <h2 className="text-white text-3xl md:text-5xl font-semibold mb-10">
           Featured Projects
