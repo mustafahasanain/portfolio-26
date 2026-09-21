@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import projects from "@/constants/projects";
-import { ProjectCard } from "@/components";
-import ContentExp from "@/components/ContentExp";
+import { Navbar, ProjectCard } from "@/components";
 
 export const metadata: Metadata = {
   title: "Projects | Mustafa",
@@ -10,17 +9,19 @@ export const metadata: Metadata = {
 
 const ProjectsPage = () => {
   return (
-    <main className="flex-1 w-full px-5 md:px-20 py-16 md:py-24">
-      <ContentExp />
+    <main className="flex-1 w-full">
+      <Navbar />
 
-      <h1 className="text-white text-3xl md:text-5xl font-semibold mb-12">
-        All Projects
-      </h1>
+      <div className="px-5 md:px-20 pt-32 pb-16 md:pt-40 md:pb-24">
+        <h1 className="text-white text-3xl md:text-5xl font-semibold mb-12">
+          All Projects
+        </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center gap-[20px]">
-        {projects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center gap-[20px]">
+          {projects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
       </div>
     </main>
   );
