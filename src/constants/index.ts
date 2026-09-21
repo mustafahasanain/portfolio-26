@@ -251,22 +251,22 @@ const socialImgs = [
   {
     name: "insta",
     url: "https://www.instagram.com/",
-    imgPath: "/images/insta.png",
-  },
-  {
-    name: "fb",
-    url: "https://www.facebook.com/",
-    imgPath: "/images/fb.png",
-  },
-  {
-    name: "x",
-    url: "https://www.x.com/",
-    imgPath: "/images/x.png",
+    imgPath: "/images/insta.svg",
   },
   {
     name: "linkedin",
     url: "https://www.linkedin.com/",
-    imgPath: "/images/linkedin.png",
+    imgPath: "/images/linkedin.svg",
+  },
+  {
+    name: "github",
+    url: "https://github.com/mustafahasanain",
+    imgPath: "/images/github.svg",
+  },
+  {
+    name: "whatsapp",
+    url: "https://wa.me/9647766511633",
+    imgPath: "/images/whatsapp.svg",
   },
 ];
 

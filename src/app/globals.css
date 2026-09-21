@@ -324,7 +324,7 @@ section {
       }
 
       img {
-        @apply inline-block;
+        @apply inline-block size-4 md:size-5;
       }
     }
   }
