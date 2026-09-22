@@ -29,57 +29,57 @@ const words = [
 ];
 
 const counterItems = [
-  { value: 15, suffix: "+", label: "Years of Experience" },
-  { value: 200, suffix: "+", label: "Satisfied Clients" },
-  { value: 108, suffix: "+", label: "Completed Projects" },
-  { value: 90, suffix: "%", label: "Client Retention Rate" },
+  { value: 5, suffix: "+", label: "Years of Experience" },
+  { value: 4, suffix: "+", label: "Industries Served" },
+  { value: 10, suffix: "+", label: "Completed Projects" },
+  { value: 90, suffix: "%", label: "On-Time Delivery Rate" },
 ];
 
 const abilities = [
   {
     imgPath: "/images/seo.png",
-    title: "Quality Focus",
-    desc: "Delivering high-quality results while maintaining attention to every detail.",
+    title: "Attention to Quality",
+    desc: "Crafting polished solutions with care, precision, and attention to every detail.",
   },
   {
     imgPath: "/images/chat.png",
-    title: "Reliable Communication",
-    desc: "Keeping you updated at every step to ensure transparency and clarity.",
+    title: "Clear Communication",
+    desc: "Keeping you informed throughout the project with clear and consistent updates.",
   },
   {
     imgPath: "/images/time.png",
-    title: "On-Time Delivery",
-    desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
+    title: "Dependable Delivery",
+    desc: "Completing projects on time without compromising quality or attention to detail.",
   },
 ];
 
 const techStackIcons = [
   {
-    name: "React Developer",
+    name: "RactJS",
     modelPath: "/models/react_logo-transformed.glb",
     scale: 1,
     rotation: [0, 0, 0],
   },
   {
-    name: "Python Developer",
+    name: "Python",
     modelPath: "/models/python-transformed.glb",
     scale: 0.8,
     rotation: [0, 0, 0],
   },
   {
-    name: "Backend Developer",
+    name: "NodeJS",
     modelPath: "/models/node-transformed.glb",
     scale: 5,
     rotation: [0, -Math.PI / 2, 0],
   },
   {
-    name: "Interactive Developer",
+    name: "THREE.JS",
     modelPath: "/models/three.js-transformed.glb",
     scale: 0.05,
     rotation: [0, 0, 0],
   },
   {
-    name: "Project Manager",
+    name: "GIT",
     modelPath: "/models/git-svg-transformed.glb",
     scale: 0.05,
     rotation: [0, -Math.PI / 4, 0],
@@ -89,12 +89,12 @@ const techStackIcons = [
 const socialImgs = [
   {
     name: "insta",
-    url: "https://www.instagram.com/",
+    url: "https://www.instagram.com/mustafahasanain.dev",
     imgPath: "/images/insta.svg",
   },
   {
     name: "linkedin",
-    url: "https://www.linkedin.com/",
+    url: "https://www.linkedin.com/in/mustafahasanain",
     imgPath: "/images/linkedin.svg",
   },
   {
@@ -111,35 +111,35 @@ const socialImgs = [
 
 const services = [
   {
-    title: "Product Design",
-    tags: ["Saas Platform", "Web Platform", "Mobile App"],
+    title: "Custom Web Applications",
+    tags: ["Business Platforms", "SaaS Products", "Internal Tools"],
     description:
-      "By working hand in hand, we'll turn your ideas into real, market-ready products. With a focus on your unique needs, we'll blend aesthetics and usability. Let's chat about how we can bring your ideas to life.",
-    ctaText: "Discuss Project",
+      "I build custom web applications around your business needs, from customer-facing platforms to internal tools that simplify daily work, reduce manual tasks, and support future growth.",
+    ctaText: "Discuss Your Project",
     ctaLink: "#contact",
   },
   {
-    title: "UX Design",
-    tags: ["UX Audit", "Analysis", "Research"],
+    title: "WordPress Development",
+    tags: ["Business Websites", "Custom Design", "WooCommerce"],
     description:
-      "Great products start with understanding people. I audit flows, run analysis, and research real user behavior to design experiences that feel intuitive from the very first click.",
-    ctaText: "Discuss Project",
+      "I build and customize responsive WordPress websites that are easy to manage, optimized for performance, and tailored to your business, content, and customer needs.",
+    ctaText: "Discuss Your Project",
     ctaLink: "#contact",
   },
   {
-    title: "Development",
-    tags: ["Next.js", "React", "Node.js", "Three.js"],
+    title: "Frappe & ERPNext Solutions",
+    tags: ["ERPNext", "Custom Modules", "Workflow Automation"],
     description:
-      "From pixel-perfect interfaces to robust backends, I build fast, scalable, and maintainable applications using modern frameworks and clean, well-tested code.",
-    ctaText: "Discuss Project",
+      "I customize Frappe and ERPNext to match how your business actually operates, including tailored modules, automated workflows, reports, integrations, and performance improvements.",
+    ctaText: "Discuss Your Project",
     ctaLink: "#contact",
   },
   {
-    title: "Quality Assurance",
-    tags: ["Testing", "Planning", "Documentation"],
+    title: "Hosting & Technical Support",
+    tags: ["Deployment", "Server Management", "Ongoing Support"],
     description:
-      "Shipping fast shouldn't mean shipping broken. I plan around clear KPIs, test thoroughly, and document everything so your product stays reliable as it grows.",
-    ctaText: "Discuss Project",
+      "I handle deployment, hosting, server configuration, monitoring, backups, and ongoing technical support to keep your website or application secure, stable, and available.",
+    ctaText: "Discuss Your Project",
     ctaLink: "#contact",
   },
 ];
