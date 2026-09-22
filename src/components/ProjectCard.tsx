@@ -3,6 +3,7 @@
 import Image from "next/image";
 import techIcons from "@/constants/techIcons";
 import { PinContainer } from "@/components/ui/3d-pin";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 type Project = {
   title: string;
@@ -36,7 +37,7 @@ const ArrowRightIcon = () => (
   </svg>
 );
 
-const ProjectCard = ({ project }: { project: Project }) => {
+const ProjectCard = ({ project, labels }: { project: Project; labels: Dictionary["showcase"] }) => {
   const {
     title,
     description,
@@ -50,7 +51,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
   const hasLinks = githubUrl || liveUrl;
   const primaryHref = liveUrl || githubUrl || "#";
-  const primaryTitle = liveUrl ? "Check Live Site" : githubUrl ? "View Code" : title;
+  const primaryTitle = liveUrl ? labels.live : githubUrl ? labels.code : title;
 
   const openInNewTab =
     (url: string) => (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -136,7 +137,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                   className="flex items-center gap-2 text-white-50 hover:text-white transition-colors duration-300 cursor-pointer"
                 >
                   <GithubIcon />
-                  <span className="text-sm md:text-base">View Code</span>
+                  <span className="text-sm md:text-base">{labels.code}</span>
                 </button>
               ) : (
                 <span />
@@ -148,7 +149,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                   onClick={openInNewTab(liveUrl)}
                   className="flex items-center gap-1 text-[#00A19B] hover:text-[#00c1ba] transition-colors duration-300 font-medium text-sm md:text-base cursor-pointer"
                 >
-                  Check Live Site
+                  {labels.live}
                   <ArrowRightIcon />
                 </button>
               )}

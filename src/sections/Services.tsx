@@ -2,9 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { services } from "@/constants";
+import { useI18n } from "@/i18n/context";
 
 const Services = () => {
+  const { dictionary } = useI18n();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -35,7 +36,7 @@ const Services = () => {
     <section id="services" className="px-5 md:px-20 mt-10 md:mt-20">
       <div className="w-full">
         <h2 className="text-white text-3xl md:text-5xl font-semibold mb-10">
-          Services &amp; Expertise
+          {dictionary.servicesTitle}
         </h2>
 
         <div
@@ -43,7 +44,7 @@ const Services = () => {
           onMouseLeave={() => setActiveIndex(null)}
           className="rounded-2xl border border-white/10 overflow-hidden"
         >
-          {services.map((service, index) => {
+          {dictionary.services.map((service, index) => {
             const isActive = index === activeIndex;
 
             return (
@@ -98,11 +99,11 @@ const Services = () => {
                         </p>
 
                         <a
-                          href={service.ctaLink}
+                          href="#contact"
                           onClick={(event) => event.stopPropagation()}
                           className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-2 text-xs font-semibold uppercase tracking-widest text-white transition-colors duration-300 hover:bg-white hover:text-black"
                         >
-                          {service.ctaText}
+                          {dictionary.discuss}
                         </a>
                       </motion.div>
                     )}

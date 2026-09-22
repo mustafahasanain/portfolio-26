@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import projects from "@/constants/projects";
 import { Button } from "@/components";
+import { useI18n } from "@/i18n/context";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,11 +27,12 @@ const ArrowRightIcon = () => (
 );
 
 const Showcase = () => {
+  const { locale, dictionary } = useI18n();
   const sectionRef = useRef(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const buttonRef = useRef<HTMLDivElement>(null);
 
-  const featuredProjects = projects.filter((project) => project.featured);
+  const featuredProjects = projects.map((project, index) => ({ ...project, ...dictionary.projects[index] })).filter((project) => project.featured);
   const [mainProject, ...otherProjects] = featuredProjects;
 
   useGSAP(() => {
@@ -83,7 +85,7 @@ const Showcase = () => {
     <div id="projects" ref={sectionRef} className="app-showcase">
       <div className="w-full">
         <h2 className="text-white text-3xl md:text-5xl font-semibold mb-10">
-          Featured Projects
+          {dictionary.showcase.title}
         </h2>
         <div className="showcaselayout">
           <div
@@ -116,7 +118,7 @@ const Showcase = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 text-[#00A19B] hover:text-[#00c1ba] transition-colors duration-300 font-medium mt-3"
                 >
-                  Check Live Site
+                  {dictionary.showcase.live}
                   <ArrowRightIcon />
                 </a>
               )}
@@ -150,7 +152,7 @@ const Showcase = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-[#00A19B] hover:text-[#00c1ba] transition-colors duration-300 font-medium mt-2"
                   >
-                    Check Live Site
+                    {dictionary.showcase.live}
                     <ArrowRightIcon />
                   </a>
                 )}
@@ -161,9 +163,9 @@ const Showcase = () => {
 
         <div ref={buttonRef} className="flex justify-center mt-14">
           <Button
-            text="VIEW ALL PROJECTS"
+            text={dictionary.showcase.all}
             className="md:w-80 md:h-16 w-60 h-12"
-            href="/projects"
+            href={locale === "ar" ? "/ar/projects" : "/projects"}
             arrowDirection="right"
           />
         </div>

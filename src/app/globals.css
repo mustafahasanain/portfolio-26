@@ -14,7 +14,44 @@ body {
   width: 100%;
   background-color: black;
   color: white;
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-jost), sans-serif;
+}
+
+html[lang="ar"] body,
+[lang="ar"] {
+  font-family: var(--font-alexandria), sans-serif;
+}
+
+html[lang="ar"] .hero-3d-layout {
+  right: auto;
+  left: 0;
+}
+
+html[lang="ar"] .hero-text .slide {
+  margin-inline-start: 0.25em;
+}
+
+html[lang="ar"] .cta-button.arrow-right .arrow-wrapper img,
+html[lang="ar"] .app-showcase a svg {
+  scale: -1 1;
+}
+
+html[lang="ar"] .cta-button .arrow-wrapper {
+  right: auto;
+  left: 2.5rem;
+}
+
+html[lang="ar"] .cta-button .bg-circle {
+  right: auto;
+  left: -2.5rem;
+}
+
+html[lang="ar"] .cta-button .text {
+  transform: translateX(1.25rem);
+}
+
+html[lang="ar"] .cta-button.arrow-right .text {
+  transform: translateX(1.25rem);
 }
 
 ::selection {
@@ -27,7 +64,7 @@ section {
 }
 
 @theme {
-  --font-sans: var(--font-geist-sans), sans-serif;
+  --font-sans: var(--font-jost), sans-serif;
   --color-white-50: #d9ecff;
   --color-black-50: #1c1c21;
   --color-black-100: #0e0e10;

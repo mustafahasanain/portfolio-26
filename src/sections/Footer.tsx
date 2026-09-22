@@ -1,15 +1,19 @@
+"use client";
+
 import Image from "next/image";
 
 import { socialImgs } from "../constants";
+import { useI18n } from "@/i18n/context";
 
 const Footer = () => {
+  const { dictionary } = useI18n();
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="flex items-center gap-3">
-          <Image src="/logo.svg" alt="Logo" width={28} height={28} />
+          <Image src="/logo.svg" alt={dictionary.logoAlt} width={28} height={28} />
           <span className="text-base font-semibold text-white">
-            Mustafa Hasanain
+            {dictionary.brandName}
           </span>
         </div>
         <div className="socials">
@@ -21,13 +25,13 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="icon"
             >
-              <img src={socialImg.imgPath} alt={`${socialImg.name} icon`} />
+              <img src={socialImg.imgPath} alt={socialImg.name} />
             </a>
           ))}
         </div>
         <div className="flex flex-col justify-center">
           <p className="text-center md:text-end">
-            © {new Date().getFullYear()} Mustafa Hasanain. All rights reserved.
+            © {new Date().getFullYear()} {dictionary.brandName}. {dictionary.footer}
           </p>
         </div>
       </div>

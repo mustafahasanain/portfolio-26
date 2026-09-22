@@ -130,7 +130,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       )}
     >
       {items.map((item, idx) => (
-        <a
+        <Link
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
           className="relative px-5 py-2.5 text-white-50 hover:text-white"
@@ -144,7 +144,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             />
           )}
           <span className="relative z-20">{item.name}</span>
-        </a>
+        </Link>
       ))}
     </motion.div>
   );
@@ -219,14 +219,16 @@ export const MobileNavMenu = ({
 export const MobileNavToggle = ({
   isOpen,
   onClick,
+  label,
 }: {
   isOpen: boolean;
   onClick: () => void;
+  label: string;
 }) => {
   return (
     <button
       onClick={onClick}
-      aria-label={isOpen ? "Close menu" : "Open menu"}
+      aria-label={label}
       className="relative flex h-6 w-6 flex-col items-center justify-center gap-1.5"
     >
       <motion.span
@@ -251,15 +253,15 @@ export const MobileNavToggle = ({
   );
 };
 
-export const NavbarLogo = () => {
+export const NavbarLogo = ({ href = "/", name = "Mustafa Hasanain", logoAlt = "Mustafa Hasanain logo" }: { href?: string; name?: string; logoAlt?: string }) => {
   return (
     <Link
-      href="/"
+      href={href}
       className="relative z-20 flex items-center gap-4 px-2 py-1 text-base font-normal text-white"
     >
-      <Image src="/logo.svg" alt="Logo" width={32} height={32} />
+      <Image src="/logo.svg" alt={logoAlt} width={32} height={32} />
       <span className="text-lg font-semibold whitespace-nowrap text-white">
-        Mustafa Hasanain
+        {name}
       </span>
     </Link>
   );

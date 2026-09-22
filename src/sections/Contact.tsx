@@ -5,6 +5,7 @@ import emailjs from "@emailjs/browser";
 
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/models/contact/ContactExperience";
+import { useI18n } from "@/i18n/context";
 
 type ToastStatus = "success" | "error";
 
@@ -13,14 +14,11 @@ type Toast = {
   message: string;
 };
 
-const TOAST_MESSAGES: Record<ToastStatus, string> = {
-  success: "Your message has been sent successfully. I'll get back to you soon!",
-  error: "Something went wrong while sending your message. Please try again.",
-};
-
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const Contact = () => {
+  const { dictionary } = useI18n();
+  const copy = dictionary.contact;
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState<Toast | null>(null);
@@ -32,7 +30,7 @@ const Contact = () => {
   });
 
   const showToast = (status: ToastStatus) => {
-    setToast({ status, message: TOAST_MESSAGES[status] });
+    setToast({ status, message: copy[status] });
     setTimeout(() => setToast(null), 5000);
   };
 
@@ -51,7 +49,7 @@ const Contact = () => {
     e.preventDefault();
 
     if (!EMAIL_REGEX.test(form.email)) {
-      setEmailError("Please enter a valid email address.");
+      setEmailError(copy.invalidEmail);
       return;
     }
     setEmailError("");
@@ -81,8 +79,8 @@ const Contact = () => {
     <section id="contact" className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
-          title="Get in Touch – Let’s Connect"
-          sub="Have questions or ideas? Let’s talk!"
+          title={copy.title}
+          sub={copy.sub}
         />
         <div className="grid-12-cols mt-16">
           <div className="xl:col-span-5">
@@ -93,27 +91,27 @@ const Contact = () => {
                 className="w-full flex flex-col gap-7"
               >
                 <div>
-                  <label htmlFor="name">Your name</label>
+                  <label htmlFor="name">{copy.name}</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="What’s your good name?"
+                    placeholder={copy.namePlaceholder}
                     required
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email">Your Email</label>
+                  <label htmlFor="email">{copy.email}</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="What’s your email address?"
+                    placeholder={copy.emailPlaceholder}
                     aria-invalid={!!emailError}
                     required
                   />
@@ -123,13 +121,13 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message">Your Message</label>
+                  <label htmlFor="message">{copy.message}</label>
                   <textarea
                     id="message"
                     name="message"
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="How can I help you?"
+                    placeholder={copy.messagePlaceholder}
                     rows={5}
                     required
                   />
@@ -139,10 +137,10 @@ const Contact = () => {
                   <div className="cta-button group">
                     <div className="bg-circle" />
                     <p className="text">
-                      {loading ? "Sending..." : "Send Message"}
+                      {loading ? copy.sending : copy.send}
                     </p>
                     <div className="arrow-wrapper">
-                      <img src="/images/arrow-down.svg" alt="arrow" />
+                      <img src="/images/arrow-down.svg" alt="" />
                     </div>
                   </div>
                 </button>

@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Languages
+
+English is the default at `/` and `/projects`; Arabic is available at `/ar` and `/ar/projects`. The switcher in the navigation changes routes client-side. Old `/en` URLs redirect permanently to the English default URLs.
+
+Set `NEXT_PUBLIC_SITE_URL` to the production origin (for example, `https://example.com`) to generate canonical links, language alternates, and sitemap URLs for a custom domain. On Vercel, the production deployment URL is used if this variable is absent.
+
 ## Getting Started
 
 First, run the development server:

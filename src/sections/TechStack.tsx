@@ -6,8 +6,10 @@ import gsap from "gsap";
 import { techStackIcons } from "../constants";
 import { TitleHeader } from "@/components";
 import TechIcon from "@/components/models/tech-logos/TechIcon";
+import { useI18n } from "@/i18n/context";
 
 const TechStack = () => {
+  const { dictionary } = useI18n();
   useGSAP(() => {
     gsap.fromTo(
       ".tech-card",
@@ -32,7 +34,7 @@ const TechStack = () => {
   return (
     <div id="stack" className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
-        <TitleHeader title="The Stack" sub="What I Bring to the Table" />
+        <TitleHeader title={dictionary.stack.title} sub={dictionary.stack.sub} />
         <div className="tech-grid">
           {techStackIcons.map((techStackIcon, index) => (
             <div

@@ -5,10 +5,12 @@ import gsap from "gsap";
 import { useRef } from "react";
 
 import { counterItems } from "@/constants";
+import { useI18n } from "@/i18n/context";
 
 gsap.registerPlugin(useGSAP);
 
 const AnimatedCounter = () => {
+  const { dictionary } = useI18n();
   const counterRef = useRef<HTMLDivElement>(null);
   const numberRefs = useRef<Array<HTMLSpanElement | null>>([]);
 
@@ -69,7 +71,7 @@ const AnimatedCounter = () => {
           >
             <span className="sr-only">
               {item.value}
-              {item.suffix} {item.label}
+              {item.suffix} {dictionary.counters[index]}
             </span>
             <p
               className="counter-number text-white-50 text-3xl md:text-5xl font-bold mb-2 [contain:layout_paint] [font-variant-numeric:tabular-nums]"
@@ -88,7 +90,7 @@ const AnimatedCounter = () => {
               className="text-white-50 text-sm md:text-lg"
               aria-hidden="true"
             >
-              {item.label}
+              {dictionary.counters[index]}
             </p>
           </li>
         ))}

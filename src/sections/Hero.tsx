@@ -6,13 +6,15 @@ import Image from "next/image";
 import { useRef } from "react";
 
 import AnimatedCounter from "../components/AnimatedCounter";
-import { words } from "../constants";
+import { useI18n } from "@/i18n/context";
 import { Button } from "@/components";
 import HeroExperience from "@/components/models/hero-models/HeroExperience";
 
 gsap.registerPlugin(useGSAP);
 
 const Hero = () => {
+  const { dictionary } = useI18n();
+  const words = [...dictionary.hero.words, ...dictionary.hero.words].map((text, index) => ({ text, imgPath: ["/images/ideas.svg", "/images/concepts.svg", "/images/designs.svg", "/images/code.svg"][index % 4] }));
   const container = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -55,7 +57,7 @@ const Hero = () => {
             <div className="hero-text">
               <h1>
                 <span className="hero-line block">
-                  Shaping
+                  {dictionary.hero.shaping}
                   <span className="slide">
                     <span className="wrapper">
                       {words.map((word, index) => (
@@ -76,17 +78,17 @@ const Hero = () => {
                     </span>
                   </span>
                 </span>
-                <span className="hero-line block">into Real Projects</span>
-                <span className="hero-line block">that Deliver Results</span>
+                <span className="hero-line block">{dictionary.hero.line2}</span>
+                <span className="hero-line block">{dictionary.hero.line3}</span>
               </h1>
             </div>
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Mustafa, a software developer based in Baghdad, Iraq.
+              {dictionary.hero.intro}
             </p>
 
             <Button
-              text="EXPLORE MY WORK"
+              text={dictionary.hero.explore}
               className="md:w-80 md:h-16 w-60 h-12"
               targetId="counter"
             />

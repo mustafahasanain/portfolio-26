@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24" role="img" aria-label="United States flag">
+  <defs>
+    <clipPath id="edge"><rect width="32" height="24" rx="2"/></clipPath>
+    <pattern id="stars" width="2.2" height="2.5" patternUnits="userSpaceOnUse">
+      <circle cx="1.1" cy="1.25" r=".38" fill="#fff"/>
+    </pattern>
+  </defs>
+  <g clip-path="url(#edge)">
+    <rect width="32" height="24" fill="#fff"/>
+    <path fill="#b22234" d="M0 0h32v1.846H0z M0 3.692h32v1.846H0z M0 7.384h32V9.23H0z M0 11.076h32v1.846H0z M0 14.768h32v1.846H0z M0 18.46h32v1.846H0z M0 22.152h32V24H0z"/>
+    <rect width="13" height="12.923" fill="#3c3b6e"/>
+    <rect x=".6" y=".45" width="11.8" height="12" fill="url(#stars)"/>
+  </g>
+</svg>
