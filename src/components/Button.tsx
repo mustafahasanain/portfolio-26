@@ -23,7 +23,7 @@ const Button = ({
 
   const content = (
     <div
-      className={`cta-button group ${
+      className={`cta-button bg-[#00A19B] group ${
         arrowDirection === "right" ? "arrow-right" : ""
       }`}
     >

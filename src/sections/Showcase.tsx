@@ -114,7 +114,7 @@ const Showcase = () => {
                   href={mainProject.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-violet-400 hover:text-violet-300 transition-colors duration-300 font-medium mt-3"
+                  className="flex items-center gap-1 text-[#00A19B] hover:text-[#00c1ba] transition-colors duration-300 font-medium mt-3"
                 >
                   Check Live Site
                   <ArrowRightIcon />
@@ -148,7 +148,7 @@ const Showcase = () => {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-violet-400 hover:text-violet-300 transition-colors duration-300 font-medium mt-2"
+                    className="flex items-center gap-1 text-[#00A19B] hover:text-[#00c1ba] transition-colors duration-300 font-medium mt-2"
                   >
                     Check Live Site
                     <ArrowRightIcon />

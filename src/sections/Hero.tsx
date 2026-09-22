@@ -70,7 +70,7 @@ const Hero = () => {
                             height={24}
                             className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
                           />
-                          <span>{word.text}</span>
+                          <span className="text-[#00A19B]">{word.text}</span>
                         </span>
                       ))}
                     </span>

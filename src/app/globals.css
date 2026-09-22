@@ -17,6 +17,11 @@ body {
   font-family: var(--font-geist-sans), sans-serif;
 }
 
+::selection {
+  background-color: #00A19B;
+  color: white;
+}
+
 section {
   width: 100%;
 }
@@ -267,7 +272,7 @@ section {
   }
 
   .tech-card-animated-bg {
-    @apply absolute left-0 bottom-[-100%] w-full h-full bg-[#2D3240] group-hover:bottom-0 transition-all duration-700;
+    @apply absolute left-0 bottom-[-100%] w-full h-full bg-[#00A19B]/50 group-hover:bottom-0 transition-all duration-700;
   }
 
   .tech-card-content {

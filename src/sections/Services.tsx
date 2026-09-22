@@ -20,11 +20,9 @@ const Services = () => {
       }
     };
 
-    window.addEventListener("scroll", closeAll, { passive: true });
     document.addEventListener("pointerdown", handlePointerDown);
 
     return () => {
-      window.removeEventListener("scroll", closeAll);
       document.removeEventListener("pointerdown", handlePointerDown);
     };
   }, []);
@@ -62,12 +60,16 @@ const Services = () => {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="relative flex flex-col gap-4 border-b border-white/10 px-8 py-10 last:border-b-0 md:flex-row md:items-start md:gap-24 md:px-16 md:py-12 lg:gap-[180px] xl:gap-[260px]"
               >
-                <span className="text-sm text-white-50 font-mono md:pt-2">
+                <span className="text-lg md:text-xl text-[#00A19B] font-mono md:pt-2">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
                 <div className="flex-1">
-                  <h3 className="text-2xl md:text-4xl font-semibold text-white">
+                  <h3
+                    className={`text-2xl md:text-4xl font-semibold transition-colors duration-300 ${
+                      isActive ? "text-[#00A19B]" : "text-white"
+                    }`}
+                  >
                     {service.title}
                   </h3>
 
@@ -97,6 +99,7 @@ const Services = () => {
 
                         <a
                           href={service.ctaLink}
+                          onClick={(event) => event.stopPropagation()}
                           className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-2 text-xs font-semibold uppercase tracking-widest text-white transition-colors duration-300 hover:bg-white hover:text-black"
                         >
                           {service.ctaText}

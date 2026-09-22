@@ -82,7 +82,7 @@ const AnimatedCounter = () => {
               >
                 {item.value}
               </span>
-              {item.suffix}
+              <span className="text-[#00A19B]">{item.suffix}</span>
             </p>
             <p
               className="text-white-50 text-sm md:text-lg"

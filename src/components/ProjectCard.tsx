@@ -141,7 +141,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 <button
                   type="button"
                   onClick={openInNewTab(liveUrl)}
-                  className="flex items-center gap-1 text-violet-400 hover:text-violet-300 transition-colors duration-300 font-medium text-sm md:text-base cursor-pointer"
+                  className="flex items-center gap-1 text-[#00A19B] hover:text-[#00c1ba] transition-colors duration-300 font-medium text-sm md:text-base cursor-pointer"
                 >
                   Check Live Site
                   <ArrowRightIcon />
