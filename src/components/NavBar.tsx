@@ -22,7 +22,7 @@ const NavBar = () => {
       <NavBody>
         <NavbarLogo />
         <NavItems items={navLinks} />
-        <NavbarButton href="#contact" variant="primary">
+        <NavbarButton href="/#contact" variant="primary">
           Contact
         </NavbarButton>
       </NavBody>
@@ -51,7 +51,7 @@ const NavBar = () => {
             </a>
           ))}
           <NavbarButton
-            href="#contact"
+            href="/#contact"
             variant="primary"
             className="w-full"
             onClick={() => setIsMobileMenuOpen(false)}

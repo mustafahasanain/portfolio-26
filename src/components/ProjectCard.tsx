@@ -64,6 +64,11 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <PinContainer
         title={primaryTitle}
         href={primaryHref}
+        onClick={() => {
+          if (liveUrl) {
+            window.open(liveUrl, "_blank", "noopener,noreferrer");
+          }
+        }}
         containerClassName="w-full h-full"
         className="w-[24rem] md:w-[27rem]"
       >

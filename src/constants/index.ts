@@ -1,19 +1,19 @@
 const navLinks = [
   {
     name: "Projects",
-    link: "#projects",
+    link: "/projects",
   },
   {
     name: "Services",
-    link: "#services",
+    link: "/#services",
   },
   {
     name: "Stack",
-    link: "#stack",
+    link: "/#stack",
   },
   {
     name: "Commitment",
-    link: "#commitment",
+    link: "/#commitment",
   },
 ];
 
